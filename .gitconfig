@@ -1,0 +1,42 @@
+[user]
+	name = mironicavasile
+	email = mironicavasile@gmail.com
+
+[credential]
+  helper = store
+
+[core]
+  editor = codium --wait
+
+[diff]
+  tool = vscode-difftool
+
+[difftool "vscode-difftool"]
+  cmd = codium --wait --diff $LOCAL $REMOTE
+
+[merge]
+  tool = vscode-mergetool
+
+[mergetool "vscode-mergetool"]
+  cmd = codium --wait --merge $REMOTE $LOCAL $BASE $MERGED
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+
+[push]
+  autoSetupRemote = true
+  default = current
+
+[alias]
+  co = checkout
+  st = status
+  reinit = !git submodule deinit --all --force && git submodule update --recursive --init
+
+[init]
+	defaultBranch = master
+
+[pager]
+	branch = false

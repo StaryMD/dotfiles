@@ -1,0 +1,12 @@
+# Set ccache as CMake's default C/C++ compiler launcher if it is installed
+if [ -x "$(command -v ccache)" ]; then
+  export CMAKE_C_COMPILER_LAUNCHER=ccache
+  export CMAKE_CXX_COMPILER_LAUNCHER=ccache
+fi
+
+# Set Ninja as CMake's default generator if it is installed
+if [ -x "$(command -v ninja)" ]; then
+  export CMAKE_GENERATOR=Ninja
+fi
+
+export CMAKE_EXPORT_COMPILE_COMMANDS=1
