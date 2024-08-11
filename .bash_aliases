@@ -1,9 +1,13 @@
-alias ls='eza --icons=always --no-user'
-alias ll='eza -la --icons=always --no-user'
-alias lt='eza -l --icons=always --no-user -T'
-alias la='eza -la --icons=always --no-user --total-size'
+if [ -x "$(command -v eza)" ]; then
+  alias ls='eza --icons=always --no-user'
+  alias ll='eza -la --icons=always --no-user'
+  alias lt='eza -l --icons=always --no-user -T'
+  alias la='eza -l --icons=always --no-user --total-size'
+fi
 
-alias code=codium
+if [ -x "$(command -v eza)" ]; then
+  alias code=codium
+fi
 
 alias alert='notify-send --urgency=critical "alert"'
 
