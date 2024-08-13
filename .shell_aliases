@@ -1,11 +1,11 @@
 if [ -x "$(command -v eza)" ]; then
   alias ls='eza --icons=always --no-user'
   alias ll='eza -la --icons=always --no-user'
-  alias lt='eza -l --icons=always --no-user -T'
-  alias la='eza -l --icons=always --no-user --total-size'
+  alias lt='eza -la --icons=always --no-user -T'
+  alias la='eza -la --icons=always --no-user --total-size'
 fi
 
-if [ -x "$(command -v eza)" ]; then
+if [ -x "$(command -v codium)" ]; then
   alias code=codium
 fi
 
@@ -19,3 +19,7 @@ if [ -x /usr/bin/dircolors ]; then
   alias fgrep='fgrep --color=auto'
   alias egrep='egrep --color=auto'
 fi
+
+alias yeet=rm -rf *
+alias cls=clear
+alias cd=z
