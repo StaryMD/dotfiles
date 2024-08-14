@@ -38,16 +38,6 @@ eval "$(zoxide init zsh)"
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Alias definitions
-if [ -f ~/.shell_aliases ]; then
-    . ~/.shell_aliases
-fi
-
-# Custom variables
-if [ -f ~/.shell_variables ]; then
-    . ~/.shell_variables
-fi
-
 # If in a git repository and has a CMakeLists.txt file, automatically start in the repo/build directory
 if [ -d .git -a -r CMakeLists.txt ]; then
   mkdir -p build && cd build
@@ -59,3 +49,13 @@ bindkey "^[[1;5C" forward-word
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 setopt rmstarsilent
+
+# Alias definitions
+if [ -f ~/.shell_aliases ]; then
+    . ~/.shell_aliases
+fi
+
+# Custom variables
+if [ -f ~/.shell_variables ]; then
+    . ~/.shell_variables
+fi
