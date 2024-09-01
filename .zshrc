@@ -39,7 +39,7 @@ eval "$(zoxide init zsh)"
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # If in a git repository and has a CMakeLists.txt file, automatically start in the repo/build directory
-if [ -d .git -a -r CMakeLists.txt ]; then
+if [ -r CMakeLists.txt ]; then
   mkdir -p build && cd build
 fi
 

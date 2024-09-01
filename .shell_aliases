@@ -22,7 +22,7 @@ if [ -x /usr/bin/dircolors ]; then
   alias egrep='egrep --color=auto'
 fi
 
-alias yeet="=touch .scape_goat && rm -rf *"
+alias yeet="=touch scape_goat && rm -rf *"
 alias cls=clear
 alias cd=z
 
@@ -34,23 +34,32 @@ update-wallpapers() {
   gallery-dl -D $OUTPUT_DIR --download-archive $ARCHIVE_FILE $GALLERY_URL
 }
 
-extract () {
-     if [ -f $1 ] ; then
-         case $1 in
-             *.tar.bz2)   tar xjf $1     ;;
-             *.tar.gz)    tar xzf $1     ;;
-             *.bz2)       bunzip2 $1     ;;
-             *.rar)       rar x $1       ;;
-             *.gz)        gunzip $1      ;;
-             *.tar)       tar xf $1      ;;
-             *.tbz2)      tar xjf $1     ;;
-             *.tgz)       tar xzf $1     ;;
-             *.zip)       unzip $1       ;;
-             *.Z)         uncompress $1  ;;
-             *.7z)        7z x $1    ;;
-             *)           echo "'$1' cannot be extracted via extract()" ;;
-         esac
-     else
-         echo "'$1' is not a valid file"
-     fi
+extract() {
+  if [ -f $1 ]; then
+    case $1 in
+    *.tar.bz2) tar xjf $1 ;;
+    *.tar.gz) tar xzf $1 ;;
+    *.bz2) bunzip2 $1 ;;
+    *.rar) rar x $1 ;;
+    *.gz) gunzip $1 ;;
+    *.tar) tar xf $1 ;;
+    *.tbz2) tar xjf $1 ;;
+    *.tgz) tar xzf $1 ;;
+    *.zip) unzip $1 ;;
+    *.Z) uncompress $1 ;;
+    *.7z) 7z x $1 ;;
+    *) echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+archive-all-dirs() {
+  dir=${dir%*/}
+  dir_name=${dir##*/}
+
+  echo "Archiving $dir_name"
+  tar -czvf "$dir_name.tar.gz" "$dir_name"
+  rm -rf "$dir_name"
 }
