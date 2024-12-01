@@ -22,14 +22,23 @@ if [ -x /usr/bin/dircolors ]; then
   alias egrep='egrep --color=auto'
 fi
 
+if [ -x "$(command -v nala)" ]; then
+  alias sudo='sudo '
+  alias pls='sudo '
+  alias daddy=nala
+fi
+
+if [ -x "$(command -v mold)" -a "$(command -v ninja)" ]; then
+  alias minja='mold --run ninja'
+fi
+
 alias yeet="=touch scape_goat && rm -rf *"
 alias cls=clear
-alias cd=z
 
 update-wallpapers() {
   local GALLERY_URL=https://www.deviantart.com/refiend/gallery/all
-  local OUTPUT_DIR=~/Pictures/Refiend
-  local ARCHIVE_FILE=~/Pictures/Refiend/refiend_archive.txt
+  local OUTPUT_DIR=~/data/Imagini/Refiend
+  local ARCHIVE_FILE=~/data/Imagini/Refiend/refiend_archive.txt
 
   gallery-dl -D $OUTPUT_DIR --download-archive $ARCHIVE_FILE $GALLERY_URL
 }
