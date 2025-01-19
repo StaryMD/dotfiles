@@ -32,7 +32,7 @@ if [ -x "$(command -v mold)" -a "$(command -v ninja)" ]; then
   alias minja='mold --run ninja'
 fi
 
-alias yeet="=touch scape_goat && rm -rf *"
+alias yeet="=touch scape_goat && rm -rf .* *"
 alias cls=clear
 
 update-wallpapers() {

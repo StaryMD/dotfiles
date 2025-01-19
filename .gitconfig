@@ -1,5 +1,5 @@
 [user]
-	name = mironicavasile
+	name = Stary404
 	email = mironicavasile@gmail.com
 
 [credential]
@@ -34,6 +34,7 @@
   co = checkout
   st = status
   reinit = !git submodule deinit --all --force && git submodule update --recursive --init
+  apply-gitignore = !git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached
 
 [init]
 	defaultBranch = master
